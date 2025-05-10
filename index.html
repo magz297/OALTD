@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <script src="script.js"></script>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pacifico&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+
+<body>
+
+  
+  <div class="blank"></div>
+  
+  <div class="logo"><img src="oimg.jpg"alt="Oasis Accounting"></div>
+
+  <div class="navbar">
+  <div class="innavbar"><a href="#">Home</a></div>
+  <div class="innavbar"><a href="#" onclick="changew()">What We Do</a></div>
+   <div class="innavbar"><a href="#" onclick="helpw()">Who We Help</a></div>
+  <div class="innavbar"><a href="#contactlink">Contact Us</a></div>
+  </div>
+
+  <div class="bigimage"><img src="accaimage.jpg"alt="big image"></div>
+  <div class="container">
+    <button class="join">Join Us</button>
+  </div>
+  
+  <div class="contact" id="contactlink">
+    <a>Telephone No: 07403 393913</a>
+    <a>Email: admin@oasisaccountingltd.com</a>
+    <a>LinkedIn: Oasis Accountings</a>
+  </div>
+  
+  <div class="feedback">
+    <div class="vaccontainer">
+    <h1>Work and Client Ethic</h1>
+    <a>Our Clients experience a high quality way of managing their company and or personal 
+    taxes but must respect our workers as individuals and their respective personal lives with
+    upmost respect. </a>
+    </div>
+  </div>
+  
+  <div class="vac"><img src="teamwork.jpg"alt="image"></div>
+  
+  <div class="blocky">
+    <div id="ablock">
+    <div id="inablock"><a href="/" class="skib">Accounts</a></div>
+    <div id="inablock"><a href="/" class="skib">Bookkeeping & cloud accounting</a></div>
+    <div id="inablock"><a href="/" class="skib">Business support</a></div>
+    <div id="inablock"><a href="/" class="skib">Corporate finance</a></div>
+    <div id="inablock"><a href="/" class="skib">Corporate tax</a></div>
+    <div id="inablock"><a  href="/" class="skib">Payroll</a></div>
+    <div id="inablock"><a  href="/" class="skib">Personal tax</a></div>
+    <div id="inablock"><a href="/" class="skib">VAT</a></div>
+    </div>
+    
+    <div id="wwh">
+      <div id="inwwh"><a href="/" class="hmm">Small Buisnesses</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Contractors</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Start-ups</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Sole Traders</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Limited Companies</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Umbrella companies</a></div>
+      <div id="inwwh"><a href="/" class="hmm">Partnerships</a></div>
+    </div>
+  </div>
+  
+  <div class="reviews">
+    <iframe src='https://widgets.sociablekit.com/google-reviews/iframe/25542385' frameborder='0' width='100%' height='1000'></iframe>
+  </div>
+  
+
+  
+  <form id="contact-form">
+    
+    <h2>Contact Us</h2>
+      
+    <input type="text" id="name" name="name" placeholder="name" required>
+    
+    <input type="email" id="email" name="email" placeholder="email" required>
+    
+    <input type="text" id="message" name="message" placeholder="message" required>
+    
+    <div class="sender"><button type="submit"><div class="sender2">Send Message</div></button></div>
+  </form>
+  
+  <div class="blank2"></div>
+  
+  <script>
+    function changew() {
+    let div = document.getElementById("ablock");
+
+    if (div.style.height === "0px" || div.style.height === "") {
+        div.style.height = "40px";
+    } else {
+        div.style.height = "0px";
+    }
+
+    let links = div.querySelectorAll("a"); 
+    links.forEach(link => {
+        if (link.style.fontSize === "0px" || link.style.fontSize === "") {
+            link.style.fontSize = "22px";
+        } else {
+            link.style.fontSize = "0px";
+        }
+    });
+}
+    function helpw() {
+    let div = document.getElementById("wwh");
+
+    if (div.style.height === "0px" || div.style.height === "") {
+        div.style.height = "40px";
+    } else {
+        div.style.height = "0px";
+    }
+
+    let links = div.querySelectorAll("a"); 
+    links.forEach(link => {
+        if (link.style.fontSize === "0px" || link.style.fontSize === "") {
+            link.style.fontSize = "22px";
+        } else {
+            link.style.fontSize = "0px";
+        }
+    });
+}
+      
+      (function() {
+        emailjs.init('uzuX0h7nhOAsnwE0N'); 
+      })();
+  
+
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();  
+  
+        const form = event.target;
+  
+       
+        emailjs.sendForm('service_lsjycf6', 'template_umasopb', form)  
+          .then(function(response) {
+            console.log('Success:', response);
+            alert('Your message has been sent!');
+          })
+          .catch(function(error) {
+            console.error('Error:', error);
+            alert('Failed to send message. Please try again later.');
+          });
+      });      
+  </script>
+
+</body>
+
+</html>
