@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700&display=swap');
+
+/* Sticky navbar styles */
+:root {
+	--nav-height: 90px;
+	--nav-bg: #ffffff;
+	--nav-color: #222;
+	--accent: #0a84ff;
+}
+
+/* Global typography: professional, sans-serif */
+html, body {
+	/* primary UI font */
+	font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: #111827;
+}
+
+/* Use Montserrat for headings for a crisp, professional look */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	font-weight: 600;
+	margin: 0;
+}
+
+.site-nav {
+	/* Stick to top of viewport */
+	position: sticky;
+	top: 0;
+	z-index: 9999;
+
+	/* look and feel */
+	background: var(--nav-bg);
+	box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+	backdrop-filter: saturate(150%) blur(6px);
+
+	/* inherit the global sans-serif; override removed to avoid duplication */
+	font-family: inherit;
+}
+
+/* container to center content and manage spacing */
+.nav-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: var(--nav-height);
+	display: flex;
+	align-items: center;
+	padding: 0 1rem;
+	gap: 1rem;
+}
+
+/* Logo on far left */
+.logo {
+	display: inline-flex;
+	align-items: center;
+	margin-right: auto; /* pushes nav items to the right */
+	height: 100%;
+}
+
+/* Replace the src in HTML with your logo file; ensure image is vertically centered */
+.logo img {
+	display: block;
+	/* let the image scale up to the container while preserving aspect ratio */
+	height: auto;
+	width: auto;
+	max-height: 100%;
+}
+
+/* Nav items on the right */
+.nav-items {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	gap: 3rem; /* increased horizontal spacing between items */
+	align-items: center;
+}
+
+/* Make each item an inline-flex so spacing remains consistent */
+.nav-items > li {
+	display: inline-flex;
+	align-items: center;
+	white-space: nowrap;
+}
+
+/* larger spacing on wide screens */
+@media (min-width: 1200px) {
+	.nav-items {
+		gap: 4.5rem; /* more spread on very wide viewports */
+	}
+}
+
+/* individual links */
+.nav-link {
+	color: var(--nav-color);
+	text-decoration: none;
+	padding: 0.5rem 0.75rem;
+	font-weight: 500;
+	border-radius: 6px;
+	transition: background-color 120ms ease, color 120ms ease;
+
+	/* requested font size */
+	font-size: 18px;
+    
+}
+
+
+
+.nav-link:hover,
+.nav-link:focus {
+	background: rgba(0,0,0,0.04);
+	color: var(--accent);
+	outline: none;
+}
+
+/* Make button-based nav links look and behave like the anchor nav links */
+button.nav-link,
+.nav-link.dropdown-toggle {
+	/* remove native button appearance */
+	appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+	padding: 0.5rem 0.75rem; /* same as .nav-link anchors */
+	color: var(--nav-color);
+	text-decoration: none;
+	font: inherit;
+	font-size: 18px; /* keep same size as anchors */
+	font-weight: 500;
+	border-radius: 6px;
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+	transition: background-color 120ms ease, color 120ms ease;
+}
+
+/* Hover / focus should match anchor behavior */
+button.nav-link:hover,
+button.nav-link:focus,
+.nav-link.dropdown-toggle:hover,
+.nav-link.dropdown-toggle:focus {
+	background: rgba(0,0,0,0.04);
+	color: var(--accent);
+	outline: none;
+}
+
+/* Ensure focus is visible for keyboard users */
+button.nav-link:focus {
+	box-shadow: 0 0 0 3px rgba(10,132,255,0.12);
+}
+
+/* small screen adjustments */
+@media (max-width: 600px) {
+	.nav-container {
+		padding: 0 0.75rem;
+	}
+	.logo img {
+		/* still allow the image to scale to the nav height on small screens */
+		height: auto;
+		max-height: 100%;
+	}
+	.nav-items {
+		gap: 0.5rem; /* keep compact on small screens */
+	}
+}
+
+/* Hero image section below the navbar */
+.hero {
+	position: relative;
+	/* background image in project root */
+	background-image: url('accaimage.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	/* fallback color if image not found */
+	background-color: #e9e9e9;
+
+	/* requested fixed height and full-viewport width */
+	height: 850px;
+	width: 100vw;
+	max-width: 100vw;
+
+	/* prevent a horizontal scrollbar from default body margins */
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+
+	display: block;
+	overflow: hidden;
+}
+
+/* dark overlay so text/buttons remain readable */
+.hero__overlay {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(rgba(0,0,0,0.18), rgba(0,0,0,0.18));
+	pointer-events: none;
+}
+
+/* container for any hero content (keeps stacking context) */
+.hero__content {
+	position: relative; /* sits above overlay */
+	height: 100%;
+	width: 100%;
+}
+
+/* Join Us button positioned bottom-right */
+.cta-button {
+	position: absolute;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	background: var(--accent);
+	color: #fff;
+	text-decoration: none;
+	font-weight: 600;
+	padding: 0.65rem 1rem;
+	border-radius: 8px;
+	box-shadow: 0 6px 18px rgba(10,132,255,0.18);
+	transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+	pointer-events: auto;
+}
+
+/* make button slightly larger and more prominent on wide screens */
+@media (min-width: 900px) {
+	.cta-button {
+		padding: 0.85rem 1.25rem;
+		right: 2.5rem;
+		bottom: 2.5rem;
+	}
+}
+
+/* tighten spacing on small screens so button never overflows */
+@media (max-width: 600px) {
+	.cta-button {
+		right: 0.75rem;
+		bottom: 0.75rem;
+		padding: 0.55rem 0.85rem;
+		font-size: 14px;
+	}
+}
+
+/* simple hover/focus state */
+.cta-button:hover,
+.cta-button:focus {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 24px rgba(10,132,255,0.22);
+	background: color-mix(in srgb, var(--accent) 88%, black 12%);
+}
+
+/* Smooth scrolling for in-page navigation */
+html {
+	/* animate anchor jumps */
+	scroll-behavior: smooth;
+
+	/* ensure anchored content isn't hidden under the sticky navbar */
+	scroll-padding-top: var(--nav-height);
+}
+
+/* respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* Full-width placeholder section you will fill later */
+.fill-section {
+	/* full-bleed */
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+
+	/* visual placeholder */
+	height: 650px; /* requested height */
+	background: #f4f6f8; /* light neutral background — replace as needed */
+	display: block;
+	box-sizing: border-box;
+}
+
+/* Reviews section that will host an embedded reviews page */
+.reviews-section {
+	/* full-bleed */
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+
+	height: 700px; /* requested height */
+	background: #ffffff;
+	display: block;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+/* inner container to control iframe padding/centering if needed */
+.reviews-section .reviews-inner {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* iframe fills the reviews block — replace src in HTML when ready */
+.reviews-section iframe {
+	width: 100%;
+	height: 100%;
+	border: 0;
+	display: block;
+}
+
+/* Contact section */
+.contact-section {
+	/* full-bleed like other sections */
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+
+	/* changed: use the same light neutral background as .fill-section */
+	background: #ffffff;
+	padding: 60px 1rem;
+	box-sizing: border-box;
+}
+
+.contact-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.5rem;
+	align-items: start;
+}
+
+/* Contact info column */
+.contact-info h2 {
+	margin: 0 0 0.5rem 0;
+	font-size: 28px;
+	letter-spacing: -0.2px;
+}
+
+.contact-lead {
+	margin: 0 0 1rem 0;
+	color: #4b5563; /* subtle gray */
+}
+
+.contact-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	color: #111827;
+}
+
+.contact-list li {
+	margin: 0.6rem 0;
+	font-size: 16px;
+}
+
+.contact-list a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.contact-list a:hover,
+.contact-list a:focus {
+	text-decoration: underline;
+}
+
+/* Contact form column */
+.contact-form-wrap {
+	width: 100%;
+}
+
+.contact-form {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.form-row input,
+.form-row textarea {
+	width: 100%;
+	padding: 12px 14px;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	font-size: 15px;
+	background: #fff;
+	box-sizing: border-box;
+	font-family: inherit;
+	color: #111827;
+	transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+/* Textarea slightly larger */
+.form-row textarea {
+	resize: vertical;
+	min-height: 140px;
+}
+
+/* Focus states */
+.form-row input:focus,
+.form-row textarea:focus {
+	outline: none;
+	border-color: var(--accent);
+	box-shadow: 0 4px 12px rgba(10,132,255,0.12);
+}
+
+/* Actions */
+.form-row--actions {
+	margin-top: 6px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.btn.cta-send {
+	background: var(--accent);
+	color: #fff;
+	padding: 0.75rem 1.1rem;
+	border-radius: 8px;
+	border: none;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 6px 18px rgba(10,132,255,0.12);
+	transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.btn.cta-send:hover,
+.btn.cta-send:focus {
+	transform: translateY(-2px);
+	box-shadow: 0 10px 24px rgba(10,132,255,0.18);
+	opacity: 0.98;
+}
+
+/* Accessibility helper: visually-hidden labels */
+.visually-hidden {
+	position: absolute !important;
+	height: 1px; width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 900px) {
+	.contact-container {
+		grid-template-columns: 1fr;
+	}
+	.form-row--actions {
+		justify-content: stretch;
+	}
+	.btn.cta-send {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/* Unified dropdown panel styling (used by services and help panels) */
+.dropdown-panel {
+	/* overlay under the navbar */
+	position: fixed;
+	top: var(--nav-height);
+	left: 0;
+	width: 100vw;
+	box-sizing: border-box;
+
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transform: translateY(-8px);
+	transition: max-height 360ms cubic-bezier(.22,.9,.32,1), opacity 280ms ease, transform 280ms ease;
+	background: #ffffff;
+	box-shadow: 0 6px 18px rgba(11,20,30,0.06);
+	z-index: 9998;
+}
+
+/* open state - short (half height) */
+.dropdown-panel.open {
+	max-height: 110px;
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* inner padding (re-uses nav-container centering) */
+.services-inner {
+	padding: 0.75rem 1rem;
+}
+
+/* horizontal list layout shared by both dropdowns */
+.dropdown-list {
+	display: flex;
+	gap: 1.25rem; /* slightly smaller gap to help fit items on one line */
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0.5rem 1rem; /* add horizontal padding to allow scroll padding */
+	list-style: none;
+	/* force one-line layout and allow horizontal scroll when necessary */
+	flex-wrap: nowrap;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* ensure items don't shrink and keep their spacing */
+.dropdown-item {
+	padding: 0.5rem 0.75rem; /* slightly reduced horizontal padding */
+	border-radius: 8px;
+	font-weight: 600;
+	color: var(--nav-color);
+	background: transparent;
+	cursor: pointer;
+	transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+	white-space: nowrap;
+	font-size: 18px;
+	flex: 0 0 auto; /* prevent shrinking so items remain on one line */
+
+	/* anchor-specific resets */
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* hover/focus effect for anchors */
+.dropdown-item:hover,
+.dropdown-item:focus {
+	background: rgba(10,132,255,0.06);
+	color: var(--accent);
+	transform: translateY(-2px);
+	outline: none;
+}
+
+/* hide scrollbar for WebKit browsers for a cleaner look */
+.dropdown-list::-webkit-scrollbar {
+	height: 8px;
+	display: none;
+}
+
+/* provide a subtle visible scrollbar fallback for non-webkit if desired */
+@supports (-ms-overflow-style: none) {
+	.dropdown-list {
+		-ms-overflow-style: none;
+	}
+}
+
+/* small-screen adjustments: still single-line, smaller gaps if needed */
+@media (max-width: 600px) {
+	.dropdown-list {
+		gap: 0.8rem;
+		padding: 0.5rem 0.75rem;
+	}
+	.dropdown-item {
+		padding: 0.45rem 0.6rem;
+		font-size: 16px;
+	}
+	.dropdown-panel.open {
+		max-height: 140px; /* keep enough room visually while allowing horizontal scroll */
+	}
+}
+
+/* Feature blocks used on wwd.html and wwh.html */
+.feature-section {
+	/* full-bleed edge-to-edge like other sections */
+	width: 100vw;
+	max-width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	box-sizing: border-box;
+	background: #ffffff;
+}
+
+.feature-block {
+	height: 600px; /* requested height */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	padding: 0 1rem;
+	box-sizing: border-box;
+	border-top: 1px solid rgba(0,0,0,0.04);
+	border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* media area (image placeholder) */
+.feature-media {
+	flex: 0 0 40%;
+	height: calc(100% - 0); /* keep inside the 600px block */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #f8fafc; /* subtle background so empty image area is visible */
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+/* replace src when you add images; ensure the image fits the box */
+.feature-media img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* text/content area */
+.feature-content {
+	/* center content in the block and stack heading over paragraph */
+	flex: 1 1 60%;
+	padding: 1.25rem;
+	max-width: 1200px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* vertical center inside the 600px block */
+	align-items: center;     /* center horizontally so the text block is centered */
+	text-align: left;
+}
+
+/* heading and description */
+.feature-content h3 {
+	margin: 0 0 0.75rem 0;
+	font-size: 1.6rem;
+	font-weight: 700;
+	font-family: inherit;
+	text-align: center; /* keep headings centered above the paragraph */
+}
+
+/* make description larger, more readable and constrain width to 70% centered */
+.feature-content p {
+	margin: 0;
+	color: #374151;
+	font-size: 18px;        /* increased size */
+	line-height: 1.6;      /* more comfortable reading */
+	max-width: 70%;        /* paragraph occupies ~70% of the feature-content width */
+}
+
+/* responsive: on small screens keep readable size but allow full width */
+@media (max-width: 900px) {
+	.feature-content p {
+		max-width: 100%;
+		font-size: 16px;
+	}
+}
+
+/* stacked layout on small screens: image above text */
+@media (max-width: 900px) {
+	.feature-block {
+		flex-direction: column;
+		padding: 1rem;
+		height: auto; /* allow height to expand on small screens */
+		min-height: 600px; /* preserve minimum visual height if desired */
+	}
+	.feature-media {
+		width: 100%;
+		height: 320px; /* fixed image height for mobile */
+	}
+	.feature-content {
+		width: 100%;
+		padding-top: 1rem;
+	}
+}

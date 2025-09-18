@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Sticky Navbar Example</title>
+    <script src="script.js"></script>
+	<link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+	<nav class="site-nav">
+		<div class="nav-container">
+			<a class="logo" href="#">
+				<!-- Replace src value with your logo path -->
+				<img src="blacklogo.jpg" alt="Logo — replace with your image path">
+			</a>
+
+			<ul class="nav-items">
+				<li><a class="nav-link" href="#">Home </a></li>
+
+				<li class="has-dropdown">
+					<button class="nav-link dropdown-toggle" aria-expanded="false" aria-controls="services-dropdown" type="button">What We Do</button>
+				</li>
+
+				<li class="has-dropdown">
+					<button class="nav-link dropdown-toggle" aria-expanded="false" aria-controls="help-dropdown" type="button">Who We Help</button>
+				</li>
+
+				<li><a class="nav-link" href="#contact">Contact Us</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- unified dropdown panels: both use .dropdown-panel/.dropdown-list/.dropdown-item so they look identical -->
+	<div id="services-dropdown" class="dropdown-panel" aria-hidden="true">
+		<div class="services-inner nav-container">
+			<ul class="dropdown-list" role="list">
+				<li><a class="dropdown-item" href="wwd.html">Accounting</a></li>
+				<li><a class="dropdown-item" href="wwd.html">Bookkeeping</a></li>
+				<li><a class="dropdown-item" href="wwd.html">Business Support</a></li>
+				<li><a class="dropdown-item" href="wwd.html">Taxation</a></li>
+				<li><a class="dropdown-item" href="wwd.html">Company Formation</a></li>
+				<li><a class="dropdown-item" href="wwd.html">CIS</a></li>
+				<li><a class="dropdown-item" href="wwd.html">VAT</a></li>
+				<li><a class="dropdown-item" href="wwd.html">Payroll</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="help-dropdown" class="dropdown-panel" aria-hidden="true">
+		<div class="services-inner nav-container">
+			<ul class="dropdown-list" role="list">
+				<li><a class="dropdown-item" href="wwh.html">Small Businesses</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Contractors</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Startups</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Sole Traders</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Limited Companies</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Umbrella Companies</a></li>
+				<li><a class="dropdown-item" href="wwh.html">Partnerships</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Hero image (fills screen under navbar). Replace accimage.jpg path if different. -->
+	<section class="hero" role="img" aria-label="Hero image">
+		<!-- Place accimage.jpg in either:
+		     c:\Users\magzu\Downloads\OALTD\accimage.jpg
+		     OR
+		     c:\Users\magzu\Downloads\OALTD\images\accimage.jpg
+		     — CSS will try images/ first, then the root file. -->
+		<div class="hero__overlay" aria-hidden="true"></div>
+		<div class="hero__content">
+			<a class="cta-button" href="#join">Join Us</a>
+		</div>
+	</section>
+
+	<!-- Add a 650px tall full-width box you can fill later -->
+	<section class="fill-section" aria-label="Content placeholder">
+		<!-- Place your content here later -->
+	</section>
+
+	<!-- Add a 700px tall full-width reviews area with an iframe.
+	     Replace the iframe src with the URL you want to embed. -->
+	<section class="reviews-section" aria-label="Reviews">
+		<div class="reviews-inner">
+			<iframe id="reviews-iframe" src="https://widgets.sociablekit.com/google-reviews/iframe/25542385" title="Reviews (replace src with your reviews page)" loading="lazy" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</section>
+
+	<!-- Contact section: left = contact info, right = contact form -->
+	<section id="contact" class="contact-section" aria-labelledby="contact-heading">
+		<div class="contact-container">
+			<div class="contact-info">
+				<h2 id="contact-heading">Contact Us</h2>
+				<p class="contact-lead">We'd love to hear from you. Call, email or send a message using the form.</p>
+
+				<ul class="contact-list" aria-label="Contact details">
+					<li><strong>Phone:</strong> <a href="tel:+1234567890">07403 393913</a></li>
+					<li><strong>Email:</strong> <a href="mailto:info@example.com">admin@oasisaccountingltd.com</a></li>
+					<li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/malligadeviaccountant" target="_blank" rel="noopener noreferrer">Malligadevi Singarasa</a></li>
+				</ul>
+			</div>
+
+			<div class="contact-form-wrap">
+				<form class="contact-form" id="contact-form" action="#" method="post" novalidate>
+					<div class="form-row">
+						<label for="contact-name" class="visually-hidden">Name</label>
+						<input id="contact-name" name="name" type="text" placeholder="Full Name" required autocomplete="name">
+					</div>
+
+					<div class="form-row">
+						<label for="contact-email" class="visually-hidden">Email</label>
+						<input id="contact-email" name="email" type="email" placeholder="Reference Number / N/A" required autocomplete="email">
+					</div>
+
+					<div class="form-row">
+						<label for="contact-message" class="visually-hidden">Message</label>
+						<textarea id="contact-message" name="message" rows="6" placeholder="Message" required></textarea>
+					</div>
+
+					<div class="form-row form-row--actions">
+						<button type="submit" class="btn cta-send">Send Message</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<main style="padding:2rem;">
+		<!-- Dummy content to show sticky behavior -->
+	
+		<div style="height:2000px;"></div>
+	</main>
+</body>
+</html>
+
+<script>
+      (function() {
+        emailjs.init('uzuX0h7nhOAsnwE0N'); 
+      })();
+  
+
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();  
+  
+        const form = event.target;
+  
+       
+        emailjs.sendForm('service_lsjycf6', 'template_umasopb', form)  
+          .then(function(response) {
+            console.log('Success:', response);
+            alert('Your message has been sent!');
+          })
+          .catch(function(error) {
+            console.error('Error:', error);
+            alert('Failed to send message. Please try again later.');
+          });
+      });      
+
+/* Generalized Dropdown toggle behaviour: handles multiple toggles (services/help),
+   slide down/up and close on outside click / Escape */
+(function () {
+	// find all toggle buttons that control dropdown panels
+	const toggles = Array.from(document.querySelectorAll('.dropdown-toggle'));
+	if (!toggles.length) return;
+
+	// map each toggle to its panel
+	const controls = toggles
+		.map(btn => {
+			const id = btn.getAttribute('aria-controls');
+			const panel = id ? document.getElementById(id) : null;
+			return panel ? { btn, panel } : null;
+		})
+		.filter(Boolean);
+
+	function closeAll(exceptBtn) {
+		controls.forEach(({ btn, panel }) => {
+			if (btn !== exceptBtn) {
+				panel.classList.remove('open');
+				panel.setAttribute('aria-hidden', 'true');
+				btn.setAttribute('aria-expanded', 'false');
+			}
+		});
+	}
+
+	controls.forEach(({ btn, panel }) => {
+		btn.addEventListener('click', function (e) {
+			e.stopPropagation();
+			const isOpen = panel.classList.contains('open');
+			if (isOpen) {
+				panel.classList.remove('open');
+				panel.setAttribute('aria-hidden', 'true');
+				btn.setAttribute('aria-expanded', 'false');
+			} else {
+				closeAll(btn);
+				panel.classList.add('open');
+				panel.setAttribute('aria-hidden', 'false');
+				btn.setAttribute('aria-expanded', 'true');
+			}
+		});
+	});
+
+	// Close when clicking outside any toggle/panel
+	document.addEventListener('click', function (e) {
+		const clickedInside = controls.some(({ btn, panel }) => btn.contains(e.target) || panel.contains(e.target));
+		if (!clickedInside) closeAll(null);
+	});
+
+	// Close with Escape
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Escape') closeAll(null);
+	});
+})();
+</script>
